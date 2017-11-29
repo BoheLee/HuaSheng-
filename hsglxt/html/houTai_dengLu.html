@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户登录</title>
+	<style>
+		*{margin:0;padding:0;}
+		.buju{width:1400px;height:850px;margin:0 auto;}
+		.tou1{width:1400px;height:88px;background:url(../img/images/后台-登录_01.jpg) no-repeat;}
+		.tou2{width:1400px;height:762px;background:url(../img/images/后台-登录_02.jpg) no-repeat;overflow:hidden;}
+		.YHDL{width:480px;height:340px;background-color:#ececec;opacity:0.9;margin:0 auto;margin-top:160px;overflow:hidden;}
+		.YHDL1{width:480px;height:70px;border-bottom:1px solid #ccc;line-height:70px;text-align:center;}
+		.span1{font-size:25px;color:#0072ad;}
+		.span2{font-size:18px;color:#ccc;margin-left:8px;}
+		.yonghu{height:36px;margin-top:35px;margin-left:50px;}
+		#inp1{height:33px;width:250px;}
+		.mima{height:36px;margin-top:10px;margin-left:50px;}
+		#inp2{height:33px;width:250px;margin-left:2px;}
+		.yanzheng{height:36px;margin-top:10px;margin-left:50px;}
+		#inp3{height:33px;width:150px;}
+		.span3{font-size:12px;}
+		.zhaohui{font-size:12px;text-decoration:none;color:black;margin-left:110px;}
+		.jizhu{margin-top:8px;}
+		.btn{background-color:#017ec1;width:250px;height:38px;margin-left:122px;color:white;font-size:16px;margin-top:8px;}
+		#inn{width:70px;height:25px;margin-left:23px;background:#ccc;border:none;display:inline-block;text-align:center;}
+		.span4{font-size:13px;margin-left:3px;}
+	</style>
+</head>
+<body>
+	<div class="buju">
+		<div class="tou1"></div>
+		<div class="tou2">
+			<div class="YHDL">
+					<div class="YHDL1">
+						<span class="span1">用户登录</span><span class="span2">UserLogin</span>
+					</div>
+					<div class="yonghu">
+						<label for="inp1">用户名 ：</label>
+						<input type="text" id="inp1" placeholder="请输入用户名"><span class="span4"></span>		
+					</div>
+					<div class="mima">
+						<label for="inp2">密&nbsp;&nbsp;&nbsp;码 ：</label>
+						<input type="text" id="inp2" placeholder="请输入密码"><span class="span4"></span>		
+					</div>
+						<div class="yanzheng">
+						<label for="inp3">验证码 ：</label>
+						<input type="text" id="inp3" placeholder="请输入验证码">
+						<input type="text" id="inn">			
+					</div>
+					<div class="jizhu">
+						<input type="checkbox" style="margin-left:125px;"><span class="span3">&nbsp;&nbsp;记住密码</span>
+						<a href="" class="zhaohui">找回密码？</a>
+					</div>
+					<button class="btn">登&nbsp;&nbsp;陆</button>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+
+<script>
+var code ; //在全局定义验证码   
+//产生验证码  
+window.onload=function createCode(){  
+     code = "";   
+     var codeLength = 4;//验证码的长度  
+     var checkCode = document.getElementById("inn");   
+     var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',  
+     'S','T','U','V','W','X','Y','Z');//随机数  
+     for(var i = 0; i < codeLength; i++) {//循环操作  
+        var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）  
+        code += random[index];//根据索引取得随机数加到code上  
+    }  
+    checkCode.value = code;//把code值赋给验证码  
+}  
+//校验验证码  
+function validate(){  
+    var inputCode = document.getElementById("inp3").value.toUpperCase(); //取得输入的验证码并转化为大写        
+    if(inputCode.length <= 0) { //若输入的验证码长度为0  
+        alert("请输入验证码！"); //则弹出请输入验证码  
+    }         
+    else if(inputCode != code ) { //若输入的验证码与产生的验证码不一致时  
+        alert("验证码输入错误！"); //则弹出验证码输入错误  
+        createCode();//刷新验证码  
+        document.getElementById("inn").value = "";//清空文本框  
+    }         
+    // else { //输入正确时  
+    //     alert("验证码正确！"); //弹出^-^  
+    // }             
+}
+
+document.querySelector("#inp1").onblur=function(){
+	var span=this.nextElementSibling||this.nextSibling;
+	if(/^[A-Za-z0-9]+.$/.test(this.value)){
+		span.innerHTML = "格式正确！";
+       	span.style.color="green";
+	}else{
+		span.innerHTML = "格式错误！";
+        span.style.color="red";
+	}
+	if(this.value==""){
+       		span.innerHTML="请重新输入";
+       		 span.style.color="red"
+       	}
+}
+document.querySelector("#inp2").onblur=function(){
+	var span=this.nextElementSibling||this.nextSibling;
+	if(/^[A-Za-z0-9]+.$/.test(this.value)){
+		span.innerHTML = "格式正确！";
+       	span.style.color="green"
+	}else{
+		span.innerHTML = "格式错误！";
+        span.style.color="red"
+	}
+	if(this.value==""){
+       		span.innerHTML="请重新输入";
+       		 span.style.color="red"
+       	}
+}
+var userName=document.getElementById('inp1');
+var password=document.getElementById('inp2'); 
+document.querySelector(".btn").onclick=function(){
+	if(userName.value!=""&&password.value!=""){
+		validate();
+		var xhr=new XMLHttpRequest();
+		xhr.open("post","../../php/login.php",true);
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.send("userName="+userName.value+"&password="+password.value);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					if(xhr.responseText=="登录成功"){
+						alert("登陆成功")
+						window.location.href="zhuYe.html";
+					}
+					if(xhr.responseText=="登录失败"){
+						alert("登陆失败")
+						window.location.href="houTai_dengLu.html";
+					}
+				}
+			}
+		}
+	}else{
+		alert("请输入！")
+		}
+	
+}
+</script>
+</script>
+</html>

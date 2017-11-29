@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>项目管理(2)</title>
+	<style>
+		*{margin:0;padding:0;}
+		.zhengTi{width:1200px;height:800px;margin:0 auto;overflow:hidden;}
+		.tou{background-color:#017ec1;width:1200px;height:70px;overflow:hidden;line-height:70px;}
+		.span1{font-size:27px;margin-left:30px;color:white;}
+		.a1{text-decoration:none;color:white;display:inline-block;height:34px;line-height:34px;float:right;margin-right:20px;margin-top:19px;}	
+		.span2{font-size:16px;color:white;float:right;}
+		.zuo{width:188px;height:600px;background-color:#f2f2f2;float:left;overflow:hidden;border-right:1px solid #ccc;border-left:1px solid #ccc;}
+		.touxiang{width:80px;height:80px;margin-top:29px;margin-left:55px;}
+		.span3{font-size:20px;}
+		.span4{font-size:12px;}
+		.xuanxiang1{width:190px;height:43px;border-bottom:1px solid #ccc;margin-top:25px;overflow: hidden;text-align:center;line-height: 40px;cursor:pointer;background-color:white;color:#2977b3}
+		.XMspan1{float:right;font-size:16px;margin-right:20px;}
+		.xuanxiang2{width:190px;height:43px;border-bottom:1px solid #ccc;overflow: hidden;text-align:center;line-height: 40px;cursor:pointer;}
+		.xuanxiang3{width:190px;height:43px;border-bottom:1px solid #ccc;overflow: hidden;text-align:center;line-height: 40px;cursor:pointer;}		
+		.xuanxiang4{width:190px;height:43px;border-bottom:1px solid #ccc;overflow: hidden;text-align:center;line-height: 40px;cursor:pointer;}
+		.xuanxiang5{width:190px;height:43px;border-bottom:1px solid #ccc;overflow: hidden;text-align:center;line-height: 40px;cursor:pointer;}
+		.xuanxiang6{width:190px;height:43px;border-bottom:1px solid #ccc;overflow: hidden;text-align:center;line-height: 40px;cursor:pointer;}
+		.you{float:right;width:1007px;height:596px;border-bottom:1px solid #ccc;border-right:1px solid #ccc;}
+		.you1{width:1007px;height:50px;background-color:#f2f2f2;line-height:50px;overflow: hidden}
+		.Ya1{text-decoration: none;color:black;font-size:14px;display:inline-block;height:50px;line-height:50px; float:left;}
+		.Ya1:hover{color:blue;}
+		.Ya2{text-decoration: none;color:black;font-size:14px;display:inline-block;height:50px;line-height:50px;float:left;}
+		.Ya2:hover{color:blue;}		
+		.XX:active{color:#2977b3;}
+		.XX:visited{color:black;}
+		.you2{width:988px;height:90px;background-color:#f2f2f2;line-height:90px;overflow: hidden;margin-top:15px;margin-left:10px;}
+		#you2_inp1{width:200px;height:30px;text-indent:3px;margin-right:20px;}
+		#you2_inp2{width:200px;height:30px;text-indent:3px;}
+		.you2_btn1{width:100px;height:35px;background-color:#6fb3e0;color:white;text-align:center;line-height:32px;overflow: hidden;margin-left:20px;}
+		.you2_div1{width:900px;margin-left:30px;overflow:hidden;font-size:16px;}
+		.you2_btn1 img{float:left;}
+		.you2_btn1 button{float:left;}
+		.Tj{color:#2977b3;background-color:#f2f2f2;text-align:center;width:130px;height:34px;font-size:16px;line-height:34px;margin-left:10px;cursor:pointer;margin-top:10px;}
+		.letter{overflow:auto;height:547px;}
+/*		.letter_one{width:300px;height:100px;line-height:100px;color:blue;margin-left:30px;font-size:20px;}*/
+		.letter_two{width:990px;height:30px;background:#eff2f7;font-size:20px;line-height:30px;margin-top:15px;}
+		.letter_three{overflow:hidden;width:990px;margin-top: 30px;}
+		.three_one{float:left;width:494px;}
+		.three_one .lll{display:inline-block; font-size:18px;width:150px;text-align:right;}
+		.three_one input{width:200px;height:30px;margin-bottom:20px;margin-left:10px;}
+		.three_two{float:left;width:494px;}
+		.three_two .lll{display:inline-block; font-size:18px;width:150px;text-align:right;}
+		.three_two input{width:200px;height:30px;margin-bottom:20px;margin-left:10px;}
+		.letter_four{width:990px;height:30px;background:#eff2f7;font-size:20px;line-height:30px;}
+		.letter_five{height:400px;width:990px;}
+		.five_one{overflow:hidden;margin-top:20px;}
+		.five_one div{float:left;}
+		.five_one input{height:30px;width:200px;}
+		.five_two{overflow:hidden;margin-top: 20px;}
+		.five_two div{float:left;}
+		.letter_six{width:990px;height:30px;background:#eff2f7;font-size:20px;line-height:30px;}
+		.seven_one{width:950px;height:180px;margin-left:25px;margin-top:25px;overflow:hidden;}
+		.seven_one div{float:left;width:235px;height:60px;font-size:20px;}
+		.seven_one div input{width:20px;height:20px;}
+		.seven_one div .poo{height:30px;line-height: 30px;}
+		#seven_two{width:500px;height:50px;line-height:50px;text-align:center;color:white;background:#6fb3e0;font-size:20px;margin-top:30px;margin-left:250px;margin-bottom:30px;}
+		#gongtai{resize:none;}
+		
+	</style>
+</head>
+<body>
+	<div class="zhengTi">
+		<div class="tou">
+			<span class="span1">华盛微信响应后台系统</span>
+			<a href="houTai_dengLu.html" class="a1">
+				<img src="../img/images/退出.png" alt="" >
+				<span class="span2">退出系统</span>
+			</a>		
+		</div >
+		<div class="zuo">
+			<div class="touxiang">
+				<img src="../img/images/touxiang.png" alt="">
+			</div>
+			<div style="text-align:center;">
+				<span class="span3">友中</span><br>
+				<span class="span4">系统管理员</span>
+			</div>
+			<div class="xuanxiang1">
+				<a href="xiangMuGuanLi(1).html" class="XX">
+				<img src="../img/images/项目管理.png" alt="" style="margin-left:20px;margin-top:3px;">
+				<span class="XMspan1">项目管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></span></a>
+			</div>
+			<div class="xuanxiang2">
+				<a href="yongHuGuanLi(1).html" class="XX">
+				<img src="../img/images/用户管理 (2).png" alt="" style="margin-left:20px;margin-top:3px;">
+				<span class="XMspan1">用户管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></span></a>
+			</div>
+			<div class="xuanxiang3">
+				<a href="heHuoRenGuanLi(1).html" class="XX">
+				<img src="../img/images/合伙人 (2).png" alt="" style="margin-left:20px;margin-top:3px;">
+				<span class="XMspan1">合伙人管理&nbsp;&nbsp;></span></a>
+			</div>
+			<div class="xuanxiang4">
+			<a href="huaShengGuanWang.html" class="XX">
+				<img src="../img/images/IE (2).png" alt="" style="margin-left:20px;margin-top:3px;">
+				<span class="XMspan1">华盛官网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></span></a>
+			</div>
+			<div class="xuanxiang5">
+				<a href="guanLiYuanSheZhi.html" class="XX">
+				<img src="../img/images/设置 (2).png" alt="" style="margin-left:20px;margin-top:3px;">
+				<span class="XMspan1">管理员设置&nbsp;&nbsp;></span></a>
+			</div>
+			<div class="xuanxiang6">
+				<a href="houTai_dengLu.html" class="XX">
+				<img src="../img/images/退出 (2).png" alt="" style="margin-left:20px;margin-top:3px;">
+				<span class="XMspan1">退出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></span></a>
+			</div></div>
+
+		<div class="you">
+			<div class="you1">
+				<a href="zhuYe.html" class="Ya1"><img src="../img/images/zhu-ye-red (2).png" alt="" style="margin-left:20px;margin-top:10px;float:left;"><span style=";float:left;">&nbsp;&nbsp;&nbsp;&nbsp;主页&nbsp;&nbsp;></span></a>
+				<a href="xiangMuGuanLi(1).html" class="Ya2">&nbsp;&nbsp;项目管理&nbsp;&nbsp;></a>
+				<a href="" class="Ya2">&nbsp;&nbsp;添加项目</a>
+			</div>
+
+			<div class="letter">	
+				<div class="letter_two">&nbsp;&nbsp;一、工程信息</div>
+			<div class="letter_three">
+				<div class="three_one">
+					<span class="lll">客户名称</span>
+					<input type="text" id="customName" name="customName"><br>
+					<span class="lll">工程地址</span>
+					<input type="text"  id="pjAddress" name="pjAddress"><br>
+					<span class="lll">开发商</span>
+					<input  type="text" id="developer"  name="developer"><br>
+					<span class="lll">设计方</span>
+					<input type="text" id="designer" name="designer"><br>
+					<span class="lll">建设方</span>
+					<input type="text" id="construction" name="construction"><br>
+					<span class="lll">技术方案论证</span>
+					<input type="text" id="tec_sche_demo" name="tec_sche_demo"><br>
+					<span class="lll">物料吨位</span>
+					<input type="text" id="meterial_ton" name="meterial_ton"><br>
+				</div>
+				<div class="three_two">
+					<span class="lll">工程名称</span>
+					<input type="text" id="pjName" name="pjName"><br>
+					<span class="lll">工程方量</span>
+					<input type="text"  id="pjVolume" name="pjVolume"><br>
+					<span class="lll">总包方</span>
+					<input type="text" id="contractor" name="contractor"><br>
+					<span class="lll">监理方</span>
+					<input type="text"  id="supervisor" name="supervisor"><br>
+					<span class="lll">合同备案</span>
+					<input type="text" id="constract" name="constract"><br>
+					<span class="lll" >进场日期</span>
+					<input type="text" id="entranceDate" name="entranceDate"><br>
+					<span class="lll">含钢量</span>
+					<input type="text" id="steel_content" name="steel_content"><br>
+				</div>
+			</div>
+			<div class="letter_four">&nbsp;&nbsp;二、工程状态</div>
+			<div class="letter_five">
+				<div class="five_one">
+					<div style="width:150px;text-align:right;">填写时间</div>
+					<div style="margin-left: 20px;"><input type="datetime-local" value="2017-08-24T13:59:59" min="2017-08-16" max="2020-09-26" id="time">
+					<img src="../img/images/日历.png" class="tuBiao">
+					</div>
+				</div>
+				<div class="five_two">
+					<div style="width:150px;text-align:right;">录入工程状态</div>
+					<div style="margin-left: 20px;"><textarea name="" id="gongtai" cols="80" rows="20"></textarea></div>
+				</div>
+			</div>
+			<div class="letter_six">&nbsp;&nbsp;三、工程进度</div>
+			<div class="letter_seven">
+				<div class="seven_one">
+					<div id="hetong"><input type="checkbox">1.合同立项</div>
+					<div><input type="checkbox">2.方案论证</div>
+					<div><input type="checkbox">3.物料进场</div>
+					<div><input type="checkbox">4.劳务施工</div>
+					<div><input type="checkbox">5.架体验收</div>
+					<div><input type="checkbox">6.甲方施工-支模</div>
+					<div><input type="checkbox">7.甲方施工-绑筋</div>
+					<div><input type="checkbox">8.甲方施工-灌浆</div>
+					<div><input type="checkbox">9.甲方施工-胀拉</div>
+					<div><input type="checkbox">10.拆架撤场</div>
+					<div><input type="checkbox">11.后期维护</div>
+				</div>
+				<button id="seven_two">保存</button>
+			</div>
+
+			
+
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+	<script>
+		var btn=document.getElementById('seven_two');
+var customName=document.getElementById('customName');
+var pjName=document.getElementById('pjName');
+var pjAddress=document.getElementById('pjAddress');
+var pjVolume=document.getElementById('pjVolume');
+var developer=document.getElementById('developer');
+var contractor=document.getElementById('contractor');
+var designer=document.getElementById('designer');
+var supervisor=document.getElementById('supervisor');
+var construction=document.getElementById('construction');
+var constract=document.getElementById('constract');
+var tec_sche_demo=document.getElementById('tec_sche_demo');
+var entranceDate=document.getElementById('entranceDate');
+var meterial_ton=document.getElementById('meterial_ton');
+var steel_content=document.getElementById('steel_content');
+btn.onclick=function(){
+	var json={
+		"customName":customName.value,
+		"pjName":pjName.value,
+		"pjAddress":pjAddress.value,
+		"pjVolume":pjVolume.value,
+		"developer":developer.value,
+		"contractor":contractor.value,
+		"designer":designer.value,
+		"supervisor":supervisor.value,
+		"construction":construction.value,
+		"constract":constract.value,
+		"tec_sche_demo":tec_sche_demo.value,
+		"entranceDate":entranceDate.value,
+		"meterial_ton":meterial_ton.value,
+		"steel_content":steel_content.value,
+	}
+	var xhr=null;
+	if(window.XMLHttpRequest){
+		xhr=new XMLHttpRequest();
+	}else{
+		xhr=new ActiveObject("Microsoft.XMLHTTP");
+	}
+	xhr.open("post","../../php/project/addProject.php",true);
+	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xhr.send("projectInfo="+JSON.stringify(json));
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				if(xhr.responseText=="添加成功"){
+					alert("添加成功");
+					window.location.href="xiangMuGuanLi(1).html";
+				}
+				if(xhr.responseText=="添加失败"){
+					alert("添加失败");
+					window.location.href="xiangMuGuanLi(2).html";
+				}
+			}
+		}
+	}
+}
+
+	</script>
+</body>
+</html>
